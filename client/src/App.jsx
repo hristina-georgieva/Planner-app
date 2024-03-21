@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import './App.css';
+import Table from './components/Table';
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -13,12 +14,13 @@ function App() {
     }
     getNotes();
   }, []);
-  console.log(notes[0]);
+
   return (
     <main className="container">
-      {notes && notes.map(note => {
+      {notes && <Table notes={notes}/>}
+      {/* {notes && notes.map(note => {
         return <li key={note._id}>{note.content} - {note.date}</li>
-      })}     
+      })}      */}
     </main>
   );
 }
