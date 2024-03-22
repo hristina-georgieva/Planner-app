@@ -35,12 +35,11 @@ function TableRow({note}) {
       console.log(res);
     }
   }
-  console.log(status);
 
   return (
     <tr key={note._id}>
       <td>{note.content}</td>
-      <td>{note.date}</td>
+      <td>{new Date(note.date).toLocaleDateString('en')}</td>
       <td><button onClick={onToggle}>{status ? <MdOutlineCheckBox />: <MdOutlineCheckBoxOutlineBlank />}</button></td>
     </tr>
   );
