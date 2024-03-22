@@ -33,6 +33,10 @@ function App() {
     setNumberOfNotes(numberOfNotes => numberOfNotes+1);
   }
 
+  const onRemoveNote = () => {
+    setNumberOfNotes(numberOfNotes => numberOfNotes-1);
+  }
+
   return (
     <main className="container">
       {!toCreateNew ? (
@@ -40,7 +44,7 @@ function App() {
       ) : (
         <CreateNote onCancel={onCancel} onAddNote={onAddNote}/>
       )}
-      {notes && <Table notes={notes}/>}
+      {notes && <Table notes={notes} onRemoveNote={onRemoveNote}/>}
     </main>
   );
 }
